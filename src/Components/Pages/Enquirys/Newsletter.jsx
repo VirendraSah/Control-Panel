@@ -8,20 +8,20 @@ function Newsletter() {
     thcontact: "Mobile Number"
   }
 
-  let Tbobj = [
-    {
-      Name: "Neil Sims",
-      email: "xyz@gmail.com",
-      Mobilenumber: "9876543210",
-      button: "green"
-    },
-    {
-      Name: "Neil Sims",
-      email: "xyz@gmail.com",
-      Mobilenumber: "9876543210",
-      button: "red"
-    }
-  ]
+    let Tbobj = [
+      {
+        Name: "Neil Sims",
+        email: "xyz@gmail.com",
+        Mobilenumber: "9876543210",
+        button: "green"
+      },
+      {
+        Name: "Neil Sims",
+        email: "xyz@gmail.com",
+        Mobilenumber: "9876543210",
+        button: "red"
+      }
+    ]
   return (
     <>
       <MainTable ThData={Thobj} TBody={Tbobj} />

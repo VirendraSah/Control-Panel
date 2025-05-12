@@ -1,8 +1,8 @@
-import React from 'react'
-
+import { Inputbox } from "../../Common/FormElement"
+import { PurpleButton } from "../../Common/FormElement"
 function Addcolor() {
   return (
-    <React.Fragment>
+    <>
       <section className='px-5'>
         <div className='border rounded'>
           <div className='border-b rounded-t py-3 px-2 bg-[#f1f5f9]'>
@@ -10,19 +10,18 @@ function Addcolor() {
           </div>
           <div className='py-2'>
             <form action="">
+              <Inputbox label={'Color Name'} Placeholder={'Enter color name...'} inputType={'Text'} />
               <div className="mb-5 px-3">
-                <label htmlFor="color-name" className="block mb-2 text-sm font-medium text-gray-900">Color Name</label>
-                <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter color name..." required />
+                <label htmlFor="color-name" className="block mb-2 text-sm font-medium text-gray-900">Color Picker</label>
+                <input type="color" id="color-picker" placeholder="Enter color name..." required />
               </div>
-              <div className="mb-5 px-3">
-                <label htmlFor="color-name" className="block mb-2 text-sm font-medium text-gray-900">Color Name</label>
-                <input type="color" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter color name..." required />
-              </div>
+              <Inputbox label={'Order'} Placeholder={'Enter order...'} inputType={'Number'} />
+              <PurpleButton BtnName={'Add Color'} />
             </form>
           </div>
         </div>
       </section>
-    </React.Fragment>
+    </>
   )
 }
 

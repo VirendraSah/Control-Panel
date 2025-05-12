@@ -84,11 +84,17 @@ function Table({ thName, thInfo, thcontact, TBodyData }) {
 
 
 function Detailrow({ tdName, tdemail, tdMobilenumber, tdbutton }) {
+    console.log(tdemail)
     return (
         <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
             <th scope='col' className='px-6 py-3'><input type="checkbox" /></th>
             <th scope="row" className="pe-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{tdName}</th>
-            <td className="px-6 py-4">{tdemail}</td>
+            <td className="px-6 py-4">
+                {typeof tdemail === 'string'
+                    ? tdemail
+                    : (<img src={tdemail.value} alt={tdName} className="w-6 h-6 rounded-full" />)
+                }
+            </td>
             <td className="px-6 py-4">{tdMobilenumber}</td>
             <td className="px-6 py-4">
                 {tdbutton === 'red'

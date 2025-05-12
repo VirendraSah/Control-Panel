@@ -3,9 +3,9 @@ import { MainTable } from '../../Common/Table'
 function Contactenquiry() {
   let Thobj = {
     TableHeading: "Contact Enquiry Management",
-    thName: "Name",
-    thInfo: "Email Id",
-    thcontact: "Mobile Number"
+    thName: "User Info",
+    thInfo: "	Subject",
+    thcontact: "Message"
   }
 
   let Tbobj = [
