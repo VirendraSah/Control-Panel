@@ -1,4 +1,3 @@
-import React from 'react'
 import { FaBars } from "react-icons/fa6";
 import { FaUserCircle } from "react-icons/fa";
 import { RiProfileLine } from "react-icons/ri";
@@ -7,7 +6,7 @@ import { Link } from 'react-router';
 
 export default function Header() {
     return (
-        <React.Fragment>
+        <>
             <header className='w-full flex flex-col absolute top-0 h-[100px]'>
                 <div className='w-full flex items-center justify-between px-3 pt-2 pb-2 border-b-2 border-gray-300 bg-white'>
                     <div className='flex gap-3 items-center justify-start'>
@@ -66,6 +65,6 @@ export default function Header() {
                     </div>
                 </div>
             </header>
-        </React.Fragment>
+        </>
     )
 }
