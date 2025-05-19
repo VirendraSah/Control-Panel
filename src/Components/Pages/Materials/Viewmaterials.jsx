@@ -1,22 +1,18 @@
 import { MainTable } from "../../Common/Table"
 function Viewmaterials() {
-  let Thobj = {
-    TableHeading: "View Material",
-    thName: "Material Name",
-    thInfo: "",
-    thcontact: "Order"
-  }
+  let TableHeading="View Material";
+  let Thobj=["Material Name", "Order"]
+
     let Tbobj = [
       {
         Name: "Neil Sims",
-        email: "",
         Mobilenumber: "1",
-        button: "green"
+        status:"active"
       }
     ]
   return (
     <>
-      <MainTable ThData={Thobj} TBody={Tbobj} />
+      <MainTable ThData={Thobj} TBody={Tbobj} THeading={TableHeading}/>
     </>
   )
 }

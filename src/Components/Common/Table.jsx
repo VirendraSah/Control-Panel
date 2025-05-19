@@ -5,9 +5,8 @@ import { MdFilterAlt } from "react-icons/md";
 import { FaPen } from "react-icons/fa";
 
 
-function MainTable({ ThData, TBody }) {
+function MainTable({ ThData, TBody, THeading }) {
     let [filter, setFilter] = useState(false)
-    let { thInfo, thName, thcontact, TableHeading } = ThData
     return (
         <React.Fragment>
             <section className='px-5 flex flex-col gap-4'>
@@ -15,7 +14,7 @@ function MainTable({ ThData, TBody }) {
                 <div className='border rounded'>
                     <div className='bg-[#f1f5f9] rounded'>
                         <div className='p-3 flex justify-between'>
-                            <p className='font-semibold leading-10 text-2xl '>{TableHeading}</p>
+                            <p className='font-semibold leading-10 text-2xl '>{THeading}</p>
                             <div className='flex items-center justify-end'>
                                 <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" onClick={() => setFilter(!filter)}>
                                     {filter
@@ -31,7 +30,7 @@ function MainTable({ ThData, TBody }) {
                         </div>
                     </div>
                     <div>
-                        <Table thName={thName} thInfo={thInfo} thcontact={thcontact} TBodyData={TBody} />
+                        <Table TBodyData={TBody} ThArrayData={ThData} />
                     </div>
                 </div>
             </section>
@@ -39,7 +38,7 @@ function MainTable({ ThData, TBody }) {
     )
 }
 
-function Table({ thName, thInfo, thcontact, TBodyData }) {
+function Table({ TBodyData, ThArrayData }) {
     return (
         <React.Fragment>
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -47,24 +46,23 @@ function Table({ thName, thInfo, thcontact, TBodyData }) {
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope='col' className='ps-6 py-3'><input type="checkbox" /></th>
-                            <th scope="col" className=" flex items-center gap-2">{thName}</th>
-                            <th scope="col" className="px-6 py-3">{thInfo}</th>
-                            <th scope="col" className="px-6 py-3">{thcontact}</th>
+                            {ThArrayData.map((data, index) => {
+                                return (
+
+                                    <th scope="col" className={`${index === 0 ? 'flex items-center gap-2' : 'px-6 py-3'}`} key={index}>
+                                        {data}
+                                    </th>
+
+                                )
+                            })}
                             <th scope="col" className="px-6 py-3">Status</th>
                             <th scope="col" className="px-6 py-3 flex justify-end"><span className="">Action</span></th>
                         </tr>
                     </thead>
                     <tbody>
                         {TBodyData.length >= 1 ? TBodyData.map((item, index) => {
-                            let { Name, email, Mobilenumber, button } = item
                             return (
-                                < Detailrow
-                                    key={index}
-                                    tdName={Name}
-                                    tdemail={email}
-                                    tdMobilenumber={Mobilenumber}
-                                    tdbutton={button}
-                                />
+                                <Detailrow Allitem={item} key={index} />
                             )
                         })
                             : (
@@ -83,26 +81,29 @@ function Table({ thName, thInfo, thcontact, TBodyData }) {
 }
 
 
-function Detailrow({ tdName, tdemail, tdMobilenumber, tdbutton }) {
-    console.log(tdemail)
+function Detailrow({ Allitem }) {
     return (
         <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
             <th scope='col' className='px-6 py-3'><input type="checkbox" /></th>
-            <th scope="row" className="pe-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">{tdName}</th>
-            <td className="px-6 py-4">
-                {typeof tdemail === 'string'
-                    ? tdemail
-                    : (<img src={tdemail.value} alt={tdName} className="w-6 h-6 rounded-full" />)
-                }
-            </td>
-            <td className="px-6 py-4">{tdMobilenumber}</td>
-            <td className="px-6 py-4">
-                {tdbutton === 'red'
-                    ? <button type="button" className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Deactive</button>
+            {Object.entries(Allitem).map(([key, value], index) => {
+                return (
+                    <>
+                        <th scope="row" className={`${index === 0 ? 'pe-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white' : 'px-6 py-4'}`} key={index}>
+                            {key === 'Image'
+                                ? (<img src={value} alt={value} className="w-6 h-6 rounded-full" />)
+                                : key === 'status'
+                                    ? (
+                                        value === 'Deactive'
+                                            ? (<button type="button" className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-1 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Deactive</button>)
+                                            : (<button type="button" className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-3 py-1 text-center">Active</button>)
+                                    )
+                                : value
+                            }
+                        </th>
+                    </>
+                )
+            })}
 
-                    : <button type="button" className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-3 py-1 text-center">Active</button>
-                }
-            </td>
             <td className="px-6 py-4 text-right">
                 <button type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-2 py-2 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"><FaPen /></button>
             </td>

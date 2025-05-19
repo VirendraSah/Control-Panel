@@ -1,30 +1,26 @@
 import { MainTable } from '../../Common/Table'
 
 function Newsletter() {
-  let Thobj = {
-    TableHeading: "Newsletters Management",
-    thName: "Name",
-    thInfo: "Email Id",
-    thcontact: "Mobile Number"
-  }
+  let TableHeading="Newsletters Management";
+  let Thobj=["Name","Email Id", "Mobile Number"]
 
     let Tbobj = [
       {
         Name: "Neil Sims",
         email: "xyz@gmail.com",
         Mobilenumber: "9876543210",
-        button: "green"
+        status:"active"
       },
       {
         Name: "Neil Sims",
         email: "xyz@gmail.com",
         Mobilenumber: "9876543210",
-        button: "red"
+        status:"Deactive"
       }
     ]
   return (
     <>
-      <MainTable ThData={Thobj} TBody={Tbobj} />
+      <MainTable ThData={Thobj} TBody={Tbobj} THeading={TableHeading}/>
     </>
   )
 }

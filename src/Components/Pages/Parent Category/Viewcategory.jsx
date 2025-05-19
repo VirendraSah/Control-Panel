@@ -1,30 +1,27 @@
 import { MainTable } from "../../Common/Table"
 import isoImg from '../../../assets/iso.webp';
 function Viewcategory() {
-  let Thobj = {
-    TableHeading: "View Category",
-    thName: "Name",
-    thInfo: "Image",
-    thcontact: "Order"
-  }
+  let TableHeading="View Category";
+  
+  let Thobj=["Name", "Image", "order"]
 
   let Tbobj = [
     {
       Name: "Neil Sims",
-      email: { type: "image", value: isoImg },
-      Mobilenumber: "1",
-      button: "green"
+      Image: isoImg,
+      order: "1",
+      status: "active"
     },
     {
       Name: "Neil Sims",
-      email: { type: "image", value: isoImg },
-      Mobilenumber: "1",
-      button: "red"
+      Image: isoImg ,
+      order: "1",
+      status: "Deactive"
     }
   ]
   return (
     <>
-      <MainTable ThData={Thobj} TBody={Tbobj} />
+      <MainTable ThData={Thobj} TBody={Tbobj} THeading={TableHeading}/>
     </>
   )
 }

@@ -1,30 +1,24 @@
 import { MainTable } from '../../Common/Table'
 
 function Viewuser() {
-  let Thobj={
-    TableHeading:"View User",
-    thName: "Name", 
-    thInfo: "Email Id",
-    thcontact: "Mobile Number"
-  }
-
-  let Tbobj=[
-    {
+  let TableHeading = "View User";
+  let Thobj = ["Name", "Email Id", "Mobile Number"]
+  let Tbobj = [{
     Name: "Neil Sims",
     email: "xyz@gmail.com",
     Mobilenumber: "9876543210",
-    button: "green"
+    status:"active"
   },
   {
     Name: "Neil Sims",
     email: "xyz@gmail.com",
     Mobilenumber: "9876543210",
-    button: "red"
+    status:"Deactive"
   }
   ]
   return (
     <>
-      <MainTable ThData={Thobj} TBody={Tbobj} />
+      <MainTable ThData={Thobj} TBody={Tbobj} THeading={TableHeading} />
     </>
   )
 }

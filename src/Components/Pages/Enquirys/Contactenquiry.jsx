@@ -1,30 +1,26 @@
 import { MainTable } from '../../Common/Table'
 
 function Contactenquiry() {
-  let Thobj = {
-    TableHeading: "Contact Enquiry Management",
-    thName: "User Info",
-    thInfo: "	Subject",
-    thcontact: "Message"
-  }
+  let TableHeading="Contact Enquiry Management";
+  let Thobj=["User Info", "Subject", "Message"]
 
   let Tbobj = [
     {
       Name: "Neil Sims",
       email: "xyz@gmail.com",
       Mobilenumber: "9876543210",
-      button: "green"
+      status:"active"
     },
     {
       Name: "Neil Sims",
       email: "xyz@gmail.com",
       Mobilenumber: "9876543210",
-      button: "red"
+      status:"Deactive"
     }
   ]
   return (
     <>
-      <MainTable ThData={Thobj} TBody={Tbobj} />
+      <MainTable ThData={Thobj} TBody={Tbobj} THeading={TableHeading} />
     </>
   )
 }
