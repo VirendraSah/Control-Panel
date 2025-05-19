@@ -22,7 +22,7 @@ import Addproducts from './Components/Pages/Products/Addproducts';
 import Viewproducts from './Components/Pages/Products/Viewproducts';
 import Addwhycooseus from './Components/Pages/Why Choose Us/Addwhycooseus';
 import Viewwhycooseus from './Components/Pages/Why Choose Us/Viewwhycooseus';
-import Orders from './Components/Pages/Order/orders';
+import Orders from './Components/Pages/Order/Orders';
 import Addslider from './Components/Pages/Sliders/Addslider';
 import Viewslider from './Components/Pages/Sliders/Viewslider';
 import Addcountry from './Components/Pages/Country/Addcountry';

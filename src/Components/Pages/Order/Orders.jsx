@@ -63,7 +63,7 @@ function ProductTable({ Thead, TData }) {
                     <td class="px-6 py-4">{item.Date}</td>
                     <td class="px-6 py-4">{item.Status}</td>
                     <td class="px-6 py-4">
-                    <button type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700">View</button>
+                      <button type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700">View</button>
                     </td>
                   </tr >
                 </>
