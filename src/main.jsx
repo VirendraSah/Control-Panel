@@ -31,13 +31,13 @@ import Addtestimonial from './Components/Pages/Testimonial/Addtestimonial';
 import Viewtestimonial from './Components/Pages/Testimonial/Viewtestimonial';
 import Addfaqs from './Components/Pages/Faqs/Addfaqs';
 import Viewfaqs from './Components/Pages/Faqs/Viewfaqs';
+import ForgotPassword from './Components/Pages/ForgotPassword';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes path="/">
-
       <Route index element={<Login />} />
-
+      <Route path='/forgot-password' element={<ForgotPassword />} />
       <Route element={<Layout />}>
 
         <Route path="dashboard" element={<Dashboard />} />

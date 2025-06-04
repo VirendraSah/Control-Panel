@@ -15,7 +15,7 @@ function Contactenquiry() {
       Name: "Neil Sims",
       email: "xyz@gmail.com",
       Mobilenumber: "9876543210",
-      status:"Deactive"
+      status:"Deactive",
     }
   ]
   return (
