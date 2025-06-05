@@ -26,13 +26,13 @@ export default function Header() {
                         <div className="hidden group-hover:block absolute top-10 right-4 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-max">
                             <ul className="py-2 text-sm text-gray-700">
                                 <li className="border-b border-gray-200">
-                                    <a
-                                        href="#"
+                                    <Link
+                                        to='profile'
                                         className="px-4 py-2 hover:bg-[#f3f4f6] hover:text-blue-500 flex items-center gap-1"
                                     >
                                         <FaUserCircle />
                                         <span className="font-semibold">Profile</span>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="border-b">
                                     <a

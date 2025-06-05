@@ -1,19 +1,15 @@
 import { MainTable } from "../../Common/Table"
 
 function Viewcolor() {
-  let Thobj = {
-    TableHeading: "View Color",
-    thName: "Color Name",
-    thInfo: "Code",
-    thcontact: "Order"
-  }
+  let Thobj = ["View Color","Color Name","Code","Order"]
 
   let Tbobj = [
     {
       Name: "Red",
       email: "#er33rv",
       Mobilenumber: "1",
-      button: "green"
+      order: "green",
+      status:"active"
     }
   ]
   return (

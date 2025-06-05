@@ -32,6 +32,7 @@ import Viewtestimonial from './Components/Pages/Testimonial/Viewtestimonial';
 import Addfaqs from './Components/Pages/Faqs/Addfaqs';
 import Viewfaqs from './Components/Pages/Faqs/Viewfaqs';
 import ForgotPassword from './Components/Pages/ForgotPassword';
+import Profile from './Components/Pages/Profile/Profile';
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -39,8 +40,10 @@ createRoot(document.getElementById('root')).render(
       <Route index element={<Login />} />
       <Route path='/forgot-password' element={<ForgotPassword />} />
       <Route element={<Layout />}>
-
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path=''>
+          <Route path="profile" element={<Profile />} />
+        </Route>
         <Route path='user'>
           <Route path="view" element={<Viewuser />} />
         </Route>
